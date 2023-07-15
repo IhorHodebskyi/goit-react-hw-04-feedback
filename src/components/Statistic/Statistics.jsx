@@ -1,7 +1,7 @@
 import { Section } from './Section';
 
-export const Statistics = ({ good, neutral, bad, total, interest }) => {
-  return total ? (
+export const Statistics = ({ good, neutral, bad, total, interest }) =>
+  total ? (
     <ul>
       <li>
         <span>Good: {good}</span>
@@ -22,4 +22,3 @@ export const Statistics = ({ good, neutral, bad, total, interest }) => {
   ) : (
     <Section title="There is no feedback" />
   );
-};
