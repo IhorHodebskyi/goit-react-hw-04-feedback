@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Section } from './Section';
 
 export const Statistic = () => {
-  const { good, setGood } = useState(0);
-  const { neutral, setNeutral } = useState(0);
-  const { bad, setBad } = useState(0);
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
 
   const handelIncrement = option => {
     switch (option) {
@@ -27,9 +27,7 @@ export const Statistic = () => {
     }
   };
 
-  const countTotalFeedback = () => {
-    return bad + neutral + good;
-  };
+  const countTotalFeedback = () => bad + neutral + good;
 
   const countPositiveFeedbackPercentage = good =>
     Math.round((good * 100) / countTotalFeedback());
@@ -57,7 +55,7 @@ export const Statistic = () => {
           neutral={neutral}
           bad={bad}
           total={countTotalFeedback()}
-          interest={countPositiveFeedbackPercentage()}
+          interest={countPositiveFeedbackPercentage(good)}
         />
       </Section>
     </div>
